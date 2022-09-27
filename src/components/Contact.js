@@ -6,7 +6,6 @@ import React from 'react';
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
 // atau langsung tambahkan dengan sx={{}}
 const Contact = ({ data }) => {
-    console.log('Props', data.length);
     // Contact berisi foto, nama, telepon, dan email
     if (typeof data === 'object' && !data.length) {
         return (
