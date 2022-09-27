@@ -6,12 +6,12 @@ import React from 'react';
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
 // atau langsung tambahkan dengan sx={{}}
 const Contact = ({ data }) => {
-    // console.log('Props', data);
+    console.log('Props', data);
     // Contact berisi foto, nama, telepon, dan email
     return (
         <React.Fragment>
             <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                {data.map((user, i) =>
+                {data.length > 0 && data.map((user, i) =>
                     <div key={i}>
                         <ListItem >
                             <ListItemAvatar>

@@ -38,7 +38,7 @@ const App = () => {
             <ContactForm parentCallback={callback} />
           </Grid>
           <Grid item xs={8}>
-            <Contact data={user} />
+            <Contact data={user[0]} />
           </Grid>
         </Grid>
       </Container >
