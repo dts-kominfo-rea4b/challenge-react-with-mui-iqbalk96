@@ -1,6 +1,7 @@
 import './App.css';
 
 // Uncomment untuk memuat daftar kontak
+import { useState } from 'react';
 import contactsJSON from './data/contacts.json';
 import Header from './components/Header';
 import Contact from './components/Contact';
@@ -13,19 +14,31 @@ const App = () => {
 
   // Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
+  const [user, setUser] = useState(contactsJSON)
+
+  const updateUser = (dataNewContact) => {
+    const newUser = [...user, dataNewContact]
+    setUser(newUser)
+  }
+
+  const callback = (data) => {
+    updateUser(data)
+  }
 
   return (
     <div className="App">
-      <Header />
-      <Container>
+      <div style={{ marginTop: 20 }}>
+        <Header />
+      </div>
+      <Container style={{ marginTop: 30 }}>
         <Grid container
           direction="row"
           spacing={2} columns={16}>
           <Grid item xs={8}>
-            <ContactForm />
+            <ContactForm parentCallback={callback} />
           </Grid>
           <Grid item xs={8}>
-            <Contact data={contactsJSON} />
+            <Contact data={user} />
           </Grid>
         </Grid>
       </Container >
